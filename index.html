@@ -10,6 +10,7 @@
     --card: #ffffff;
     --border: #e2e5e9;
     --border-strong: #cbd0d6;
+    --line: #b0b8c4;
     --header-bg: #1e293b;
     --header-text: #f8fafc;
     --origami: #dcfce7;
@@ -55,183 +56,80 @@
   }
 
   /* ── Header ── */
-  .page-header {
-    text-align: center;
-    padding: 16px 0 20px;
-  }
-  .page-header h1 {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--text);
-    letter-spacing: -0.02em;
-  }
-  .page-header p {
-    color: var(--text-secondary);
-    font-size: 0.875rem;
-    margin-top: 2px;
-  }
+  .page-header { text-align: center; padding: 16px 0 20px; }
+  .page-header h1 { font-size: 1.5rem; font-weight: 800; color: var(--text); letter-spacing: -0.02em; }
+  .page-header p { color: var(--text-secondary); font-size: 0.875rem; margin-top: 2px; }
 
-  /* ── Top Section: Inputs + Net-Take Card ── */
-  .top-section {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin-bottom: 24px;
-  }
+  /* ── Top Section ── */
+  .top-section { display: flex; flex-direction: column; gap: 16px; margin-bottom: 24px; }
 
   /* ── Inputs Panel ── */
   .inputs-panel {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 20px;
-    box-shadow: var(--shadow-sm);
-    flex: 1;
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow-sm); flex: 1;
   }
   .inputs-panel h2 {
-    font-size: 0.8125rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--text-secondary);
-    margin-bottom: 16px;
+    font-size: 0.8125rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.06em; color: var(--text-secondary); margin-bottom: 16px;
   }
-  .input-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
+  .input-grid { display: flex; flex-direction: column; gap: 14px; }
   .input-section-label {
-    font-size: 0.6875rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--accent);
-    font-weight: 700;
-    padding-top: 6px;
-    border-top: 1px solid var(--border);
+    font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--accent); font-weight: 700; padding-top: 6px; border-top: 1px solid var(--border);
   }
-  .input-row {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
+  .input-row { display: grid; grid-template-columns: 1fr; gap: 12px; }
   .input-group { position: relative; }
   .input-group label {
-    display: block;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--text-secondary);
-    margin-bottom: 4px;
+    display: block; font-size: 0.75rem; font-weight: 600;
+    color: var(--text-secondary); margin-bottom: 4px;
   }
   .input-group input {
-    width: 100%;
-    padding: 10px 12px;
-    border: 1.5px solid var(--border);
-    border-radius: var(--radius-sm);
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--text);
-    background: var(--card);
-    transition: border-color 0.15s, box-shadow 0.15s;
-    -webkit-appearance: none;
+    width: 100%; padding: 10px 12px; border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm); font-size: 1rem; font-weight: 500;
+    color: var(--text); background: var(--card);
+    transition: border-color 0.15s, box-shadow 0.15s; -webkit-appearance: none;
   }
-  .input-group input:focus {
-    outline: none;
-    border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(59,130,246,0.12);
-  }
+  .input-group input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(59,130,246,0.12); }
   .input-group .input-suffix {
-    position: absolute;
-    right: 12px;
-    bottom: 11px;
-    color: var(--text-tertiary);
-    font-size: 0.875rem;
-    font-weight: 500;
-    pointer-events: none;
+    position: absolute; right: 12px; bottom: 11px;
+    color: var(--text-tertiary); font-size: 0.875rem; font-weight: 500; pointer-events: none;
   }
   .input-group.has-suffix input { padding-right: 32px; }
 
   /* ── Net-Take Card ── */
   .net-take-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 24px;
-    box-shadow: var(--shadow-sm);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-width: 260px;
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow-sm);
+    display: flex; flex-direction: column; justify-content: center; min-width: 260px;
   }
-  .net-take-card .ntc-title {
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--text-secondary);
-    margin-bottom: 12px;
-    padding-bottom: 8px;
-    border-bottom: 2px solid var(--accent);
+  .ntc-title {
+    font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.06em; color: var(--text-secondary); margin-bottom: 12px;
+    padding-bottom: 8px; border-bottom: 2px solid var(--accent);
   }
-  .net-take-card .ntc-label {
-    font-size: 0.75rem;
-    color: var(--text-tertiary);
-    margin-bottom: 2px;
-  }
-  .net-take-card .ntc-value {
-    font-size: 2rem;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    line-height: 1.2;
-    margin-bottom: 16px;
-  }
-  .net-take-card .ntc-metrics {
-    display: flex;
-    gap: 24px;
-    flex-wrap: wrap;
-  }
-  .net-take-card .ntc-metric {
-    flex: 1;
-    min-width: 100px;
-    background: var(--bg);
-    border-radius: var(--radius-sm);
-    padding: 12px 14px;
-  }
-  .net-take-card .ntc-metric-label {
-    font-size: 0.6875rem;
-    color: var(--text-tertiary);
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    margin-bottom: 2px;
-  }
-  .net-take-card .ntc-metric-value {
-    font-size: 1.375rem;
-    font-weight: 800;
-  }
+  .ntc-label { font-size: 0.75rem; color: var(--text-tertiary); margin-bottom: 2px; }
+  .ntc-value { font-size: 2rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 16px; }
+  .ntc-metrics { display: flex; gap: 24px; flex-wrap: wrap; }
+  .ntc-metric { flex: 1; min-width: 100px; background: var(--bg); border-radius: var(--radius-sm); padding: 12px 14px; }
+  .ntc-metric-label { font-size: 0.6875rem; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 2px; }
+  .ntc-metric-value { font-size: 1.375rem; font-weight: 800; }
 
-  /* ── Tree Diagram ── */
+  /* ── Tree Container ── */
   .tree-container {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 20px;
-    box-shadow: var(--shadow-sm);
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow-sm);
   }
   .tree-container h2 {
-    font-size: 0.8125rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--text-secondary);
-    margin-bottom: 20px;
+    font-size: 0.8125rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.06em; color: var(--text-secondary); margin-bottom: 20px;
   }
 
+  /* ── Tree Layout ── */
   .tree {
     display: flex;
     flex-direction: column;
-    gap: 28px;
+    gap: 32px;
   }
-
   .tree-branch {
     display: flex;
     flex-direction: column;
@@ -239,136 +137,134 @@
     gap: 0;
   }
   .tree-branch-title {
-    font-size: 0.6875rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--text-tertiary);
-    margin-bottom: 8px;
-    text-align: center;
+    font-size: 0.6875rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--text-tertiary); margin-bottom: 8px; text-align: center;
   }
 
+  /* ── Nodes ── */
   .node {
-    border: 1.5px solid var(--border);
-    border-radius: var(--radius-sm);
-    padding: 12px 16px;
-    text-align: center;
-    width: 100%;
-    max-width: 240px;
-    background: var(--card);
+    border: 1.5px solid var(--border); border-radius: var(--radius-sm);
+    padding: 12px 16px; text-align: center; width: 100%; max-width: 220px; background: var(--card);
   }
   .node-label {
-    font-size: 0.6875rem;
-    color: var(--text-secondary);
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    font-weight: 600;
-    margin-bottom: 2px;
-    line-height: 1.3;
+    font-size: 0.6875rem; color: var(--text-secondary); text-transform: uppercase;
+    letter-spacing: 0.04em; font-weight: 600; margin-bottom: 2px; line-height: 1.3;
   }
-  .node-value {
-    font-size: 1.25rem;
-    font-weight: 800;
-    letter-spacing: -0.01em;
-    line-height: 1.2;
-  }
-  .node-formula {
-    font-size: 0.625rem;
-    color: var(--text-tertiary);
-    font-style: italic;
-    margin-top: 3px;
-  }
+  .node-value { font-size: 1.25rem; font-weight: 800; letter-spacing: -0.01em; line-height: 1.2; }
+  .node-formula { font-size: 0.625rem; color: var(--text-tertiary); font-style: italic; margin-top: 3px; }
 
   .node-header { background: var(--header-bg); border-color: var(--header-bg); box-shadow: var(--shadow-md); }
   .node-header .node-label { color: rgba(255,255,255,0.6); }
   .node-header .node-value { color: var(--header-text); }
-
   .node-origami { background: var(--origami); border-color: var(--origami-border); }
   .node-origami .node-value { color: var(--origami-text); }
-
   .node-operator { background: var(--operator); border-color: var(--operator-border); }
   .node-operator .node-value { color: var(--operator-text); }
-
   .node-bonus { background: var(--bonus); border-color: var(--bonus-border); }
   .node-bonus .node-value { color: var(--bonus-text); }
-
   .node-neutral { background: var(--neutral); border-color: var(--neutral-border); }
   .node-neutral .node-value { color: var(--neutral-text); }
-
   .node-positive { background: #dcfce7; border-color: #86efac; }
   .node-positive .node-value { color: var(--positive); }
-
   .node-negative { background: #fee2e2; border-color: #fca5a5; }
   .node-negative .node-value { color: var(--negative); }
 
-  /* Connectors */
-  .conn { width: 2px; height: 18px; background: var(--border-strong); flex-shrink: 0; }
-  .conn-arrow {
+  /* ── Connectors ── */
+  .vline { width: 2px; height: 20px; background: var(--line); flex-shrink: 0; }
+  .vline-short { width: 2px; height: 12px; background: var(--line); flex-shrink: 0; }
+  .arrow-down {
     width: 0; height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 6px solid var(--border-strong);
-    flex-shrink: 0;
+    border-left: 5px solid transparent; border-right: 5px solid transparent;
+    border-top: 6px solid var(--line); flex-shrink: 0;
   }
-  .conn-group { display: flex; flex-direction: column; align-items: center; }
+  .conn-down { display: flex; flex-direction: column; align-items: center; }
 
-  .split-pair {
+  /* Fork: vertical stem down, then horizontal bar, then two vertical stems down with arrows */
+  .fork {
     display: flex;
-    gap: 12px;
-    align-items: flex-start;
-    justify-content: center;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
   }
-  .split-item {
+  .fork-bar {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  .fork-bar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: var(--fork-left, 25%);
+    right: var(--fork-right, 25%);
+    height: 2px;
+    background: var(--line);
+  }
+  .fork-children {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    width: 100%;
+  }
+  .fork-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    max-width: 220px;
+    min-width: 130px;
+  }
+  .fork-child-label {
+    font-size: 0.6875rem; color: var(--text-secondary); font-weight: 600; margin-bottom: 2px;
+  }
+
+  /* Horizontal arrow between two nodes */
+  .h-flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .h-flow-item {
     display: flex;
     flex-direction: column;
     align-items: center;
     flex: 1;
     min-width: 140px;
-    max-width: 240px;
+    max-width: 220px;
   }
-  .split-label {
-    font-size: 0.6875rem;
-    color: var(--text-secondary);
-    font-weight: 600;
-    margin-bottom: 4px;
-    text-align: center;
-  }
-
-  .flow-arrow {
+  .h-arrow {
     display: flex;
     align-items: center;
-    justify-content: center;
-    color: var(--text-tertiary);
-    font-size: 1.25rem;
-    padding: 0 4px;
+    padding: 0 6px;
+    color: var(--line);
     flex-shrink: 0;
   }
+  .h-arrow svg { display: block; }
+
   .formula-text {
-    font-size: 0.6875rem;
-    color: var(--text-tertiary);
-    font-style: italic;
-    text-align: center;
-    padding: 2px 0;
+    font-size: 0.6875rem; color: var(--text-tertiary); font-style: italic;
+    text-align: center; padding: 2px 0;
   }
 
-  .result-pair {
+  /* Bottom result nodes */
+  .bottom-node-wrap {
     display: flex;
-    gap: 12px;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 100%;
+    flex-direction: column;
+    align-items: center;
   }
-  .result-pair .node { flex: 1; min-width: 160px; }
+  .bottom-formula {
+    font-size: 0.625rem; color: var(--text-tertiary); font-style: italic;
+    text-align: center; margin-bottom: 4px; line-height: 1.4;
+  }
 
   /* ── TL;DR ── */
   .tldr {
-    border: 2px solid var(--border);
-    border-radius: var(--radius);
-    padding: 16px 20px;
-    margin-top: 24px;
-    background: var(--bg);
+    border: 2px solid var(--border); border-radius: var(--radius);
+    padding: 16px 20px; margin-top: 24px; background: var(--bg);
   }
   .tldr-title { font-size: 0.9375rem; font-weight: 800; margin-bottom: 6px; }
   .tldr-line { font-size: 0.875rem; color: var(--text); margin-bottom: 2px; }
@@ -377,17 +273,13 @@
   /* ═══════════════════════════════
      RESPONSIVE
      ═══════════════════════════════ */
-
   @media (min-width: 480px) {
     .input-row { grid-template-columns: repeat(2, 1fr); }
   }
-
   @media (min-width: 640px) {
     .container { padding: 20px; }
     .page-header h1 { font-size: 1.75rem; }
-    .input-row { grid-template-columns: repeat(2, 1fr); }
   }
-
   @media (min-width: 900px) {
     .container { padding: 24px 32px; }
     .top-section { flex-direction: row; align-items: stretch; }
@@ -396,23 +288,22 @@
     .input-row { grid-template-columns: repeat(3, 1fr); }
     .tree-container { padding: 28px; }
   }
-
   @media (min-width: 1100px) {
     .page-header h1 { font-size: 2rem; }
     .container { padding: 24px 40px; }
     .tree {
       flex-direction: row;
       align-items: flex-start;
-      gap: 24px;
+      gap: 20px;
     }
     .tree-branch { flex: 1; }
-    .tree-branch-middle { flex: 1.6; }
-    .node { max-width: 220px; }
+    .tree-branch-middle { flex: 1.7; }
   }
-
   @media (min-width: 1400px) {
-    .tree { gap: 36px; }
-    .node { max-width: 260px; }
+    .tree { gap: 32px; }
+    .node { max-width: 240px; }
+    .fork-child { max-width: 240px; }
+    .h-flow-item { max-width: 240px; }
   }
 </style>
 </head>
@@ -424,7 +315,6 @@
     <p>Real-time revenue split analysis</p>
   </div>
 
-  <!-- Top: Inputs + Net-Take Card side by side -->
   <div class="top-section">
     <div class="inputs-panel">
       <h2>Inputs</h2>
@@ -445,14 +335,12 @@
             <span class="input-suffix">%</span>
           </div>
         </div>
-
         <div class="input-row">
           <div class="input-group">
             <label>Actual GGR ($)</label>
             <input type="text" id="actualGGR" value="300,000" inputmode="decimal">
           </div>
         </div>
-
         <div class="input-section-label">Player Bonusing</div>
         <div class="input-row">
           <div class="input-group has-suffix">
@@ -466,7 +354,6 @@
             <span class="input-suffix">%</span>
           </div>
         </div>
-
         <div class="input-section-label">NGR Split</div>
         <div class="input-row">
           <div class="input-group has-suffix">
@@ -482,16 +369,12 @@
         </div>
       </div>
     </div>
-
-    <!-- Operator Net-Take Card -->
     <div class="net-take-card" id="netTakeCard"></div>
   </div>
 
-  <!-- Tree Diagram -->
   <div class="tree-container">
     <h2>Revenue Flow</h2>
     <div id="treeDiagram"></div>
-
     <div id="tldr"></div>
   </div>
 </div>
@@ -500,12 +383,10 @@
 function parseNum(id) {
   return parseFloat(document.getElementById(id).value.replace(/[^0-9.\-]/g, '')) || 0;
 }
-
 function fmt(n) {
   const str = Math.abs(n).toLocaleString('en-US', { maximumFractionDigits: 0 });
   return n < 0 ? '-$' + str : '$' + str;
 }
-
 function pct(n) { return n.toFixed(1) + '%'; }
 
 function calculate() {
@@ -569,62 +450,76 @@ function renderTree(c) {
   const opNetColor = c.operatorNetPosition >= 0 ? 'var(--positive)' : 'var(--negative)';
   const oriNetColor = c.origamiNetPosition >= 0 ? 'var(--origami-text)' : 'var(--negative)';
 
+  const svgArrow = `<svg width="28" height="14" viewBox="0 0 28 14"><line x1="0" y1="7" x2="22" y2="7" stroke="currentColor" stroke-width="2"/><polygon points="22,2 28,7 22,12" fill="currentColor"/></svg>`;
+
   document.getElementById('treeDiagram').innerHTML = `
     <div class="tree">
-      <!-- LEFT: Theoretical GGR -->
+
+      <!-- ═══ LEFT BRANCH: Theoretical GGR ═══ -->
       <div class="tree-branch">
-        <div class="tree-branch-title">Theoretical</div>
+        <div class="tree-branch-title">Theoretical GGR</div>
         <div class="node node-header">
           <div class="node-label">Theoretical GGR</div>
           <div class="node-value">${fmt(c.theoreticalGGR)}</div>
         </div>
-        <div class="conn-group"><div class="conn"></div><div class="conn-arrow"></div></div>
-        <div class="formula-text">Theo GGR &times; ${(c.bonusBudgetPct*100).toFixed(0)}%</div>
-        <div class="conn-group"><div class="conn"></div><div class="conn-arrow"></div></div>
+        <div class="conn-down"><div class="vline"></div></div>
+        <div class="formula-text">Theoretical GGR &times; ${(c.bonusBudgetPct*100).toFixed(0)}%<br>${fmt(c.theoreticalGGR)} &times; ${(c.bonusBudgetPct*100).toFixed(0)}% =</div>
+        <div class="conn-down"><div class="vline-short"></div><div class="arrow-down"></div></div>
         <div class="node node-neutral">
           <div class="node-label">Bonus Budget</div>
           <div class="node-value">${fmt(c.bonusBudget)}</div>
         </div>
       </div>
 
-      <!-- MIDDLE: Revenue Split -->
+      <!-- ═══ MIDDLE BRANCH: Actual GGR / Revenue Split ═══ -->
       <div class="tree-branch tree-branch-middle">
-        <div class="tree-branch-title">Revenue Split</div>
+        <div class="tree-branch-title">Actual GGR</div>
         <div class="node node-header">
           <div class="node-label">Actual GGR</div>
           <div class="node-value">${fmt(c.actualGGR)}</div>
         </div>
-        <div class="conn-group"><div class="conn"></div><div class="conn-arrow"></div></div>
 
-        <div class="split-pair">
-          <div class="split-item">
-            <div class="split-label">${(c.origamiPct*100).toFixed(0)}%</div>
-            <div class="node node-origami">
-              <div class="node-label">Origami Share</div>
-              <div class="node-value">${fmt(c.origamiShare)}</div>
-            </div>
-          </div>
-          <div class="split-item">
-            <div class="split-label">${(c.operatorPct*100).toFixed(0)}%</div>
-            <div class="node node-operator">
-              <div class="node-label">Operator Share</div>
-              <div class="node-value">${fmt(c.operatorShare)}</div>
+        <!-- Fork: Actual GGR splits into Origami / Operator -->
+        <div class="fork">
+          <div class="vline"></div>
+          <div class="fork-bar" style="--fork-left:25%;--fork-right:25%;">
+            <div class="fork-children">
+              <div class="fork-child">
+                <div class="vline-short"></div>
+                <div class="arrow-down"></div>
+                <div class="fork-child-label">${(c.origamiPct*100).toFixed(0)}%</div>
+                <div class="node node-origami">
+                  <div class="node-label">Origami Share</div>
+                  <div class="node-value">${fmt(c.origamiShare)}</div>
+                </div>
+              </div>
+              <div class="fork-child">
+                <div class="vline-short"></div>
+                <div class="arrow-down"></div>
+                <div class="fork-child-label">${(c.operatorPct*100).toFixed(0)}%</div>
+                <div class="node node-operator">
+                  <div class="node-label">Operator Share</div>
+                  <div class="node-value">${fmt(c.operatorShare)}</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="conn-group"><div class="conn"></div><div class="conn-arrow"></div></div>
+        <div class="conn-down"><div class="vline"></div></div>
+        <div class="formula-text">${(c.origamiPct*100).toFixed(0)}% &times; Bonus Budget<br>${(c.origamiPct*100).toFixed(0)}% &times; ${fmt(c.bonusBudget)}</div>
+        <div class="conn-down"><div class="vline-short"></div><div class="arrow-down"></div></div>
 
-        <div class="split-pair" style="align-items:center;">
-          <div class="split-item">
+        <!-- Origami Bonus → Total Operator Share -->
+        <div class="h-flow">
+          <div class="h-flow-item">
             <div class="node node-bonus">
               <div class="node-label">Origami Bonus Budget Payable to Operator</div>
               <div class="node-value">${fmt(c.origamiBonusBudget)}</div>
-              <div class="node-formula">${(c.origamiPct*100).toFixed(0)}% &times; Bonus Budget</div>
             </div>
           </div>
-          <div class="flow-arrow">&rarr;</div>
-          <div class="split-item">
+          <div class="h-arrow">${svgArrow}</div>
+          <div class="h-flow-item">
             <div class="node node-operator">
               <div class="node-label">Total Operator Share</div>
               <div class="node-value">${fmt(c.totalOperatorShare)}</div>
@@ -633,57 +528,78 @@ function renderTree(c) {
           </div>
         </div>
 
-        <div class="conn-group"><div class="conn"></div><div class="conn-arrow"></div></div>
-
-        <div class="result-pair">
-          <div class="node node-origami">
-            <div class="node-label">Origami Net Position</div>
-            <div class="node-value" style="color:${oriNetColor}">${fmt(c.origamiNetPosition)}</div>
-            <div class="node-formula">Origami Share &minus; Origami Bonus</div>
-          </div>
-          <div class="node node-operator">
-            <div class="node-label">Operator Net Position</div>
-            <div class="node-value" style="color:${opNetColor}">${fmt(c.operatorNetPosition)}</div>
-            <div class="node-formula">Total Op Share &minus; Bonus Payable</div>
-          </div>
+        <!-- Origami Net Position at bottom of middle branch -->
+        <div class="conn-down"><div class="vline"></div></div>
+        <div class="bottom-formula">
+          Origami share &minus; Origami Bonus Payable<br>
+          ${fmt(c.origamiShare)} &minus; ${fmt(c.origamiBonusBudget)}
+        </div>
+        <div class="conn-down"><div class="vline-short"></div><div class="arrow-down"></div></div>
+        <div class="node node-origami">
+          <div class="node-label">Total Origami Share</div>
+          <div class="node-value" style="color:${oriNetColor}">${fmt(c.origamiNetPosition)}</div>
+          <div class="node-formula">Origami Net Position</div>
         </div>
       </div>
 
-      <!-- RIGHT: Player Deal -->
+      <!-- ═══ RIGHT BRANCH: Player Deal ═══ -->
       <div class="tree-branch">
-        <div class="tree-branch-title">Player Deal</div>
+        <div class="tree-branch-title">Player Deal: ${(c.rakebackPct*100).toFixed(0)}% Rakeback &amp; ${(c.cashbackPct*100).toFixed(0)}% Cashback</div>
         <div class="node ${playerClass}">
           <div class="node-label">${playerLabel}</div>
           <div class="node-value">${fmt(Math.abs(c.playerPosition))}</div>
         </div>
-        <div class="conn-group"><div class="conn"></div><div class="conn-arrow"></div></div>
 
-        <div class="split-pair">
-          <div class="split-item">
-            <div class="split-label">${(c.rakebackPct*100).toFixed(0)}% Rakeback</div>
-            <div class="node node-neutral">
-              <div class="node-label">Expected Rakeback</div>
-              <div class="node-value">${fmt(c.expectedRakeback)}</div>
-              <div class="node-formula">${(c.rakebackPct*100).toFixed(0)}% &times; Theo GGR</div>
-            </div>
-          </div>
-          <div class="split-item">
-            <div class="split-label">${(c.cashbackPct*100).toFixed(0)}% Cashback</div>
-            <div class="node node-neutral">
-              <div class="node-label">Expected Cashback</div>
-              <div class="node-value">${fmt(c.expectedCashback)}</div>
-              <div class="node-formula">${(c.cashbackPct*100).toFixed(0)}% &times; Theo GGR</div>
+        <!-- Fork: Player Loss splits into Rakeback / Cashback -->
+        <div class="fork">
+          <div class="vline"></div>
+          <div class="fork-bar" style="--fork-left:25%;--fork-right:25%;">
+            <div class="fork-children">
+              <div class="fork-child">
+                <div class="vline-short"></div>
+                <div class="arrow-down"></div>
+                <div class="fork-child-label">${(c.rakebackPct*100).toFixed(0)}% Rakeback</div>
+                <div class="node node-neutral">
+                  <div class="node-label">Expected Rakeback</div>
+                  <div class="node-value">${fmt(c.expectedRakeback)}</div>
+                  <div class="node-formula">${(c.rakebackPct*100).toFixed(0)}% &times; Theo GGR</div>
+                </div>
+              </div>
+              <div class="fork-child">
+                <div class="vline-short"></div>
+                <div class="arrow-down"></div>
+                <div class="fork-child-label">${(c.cashbackPct*100).toFixed(0)}% Cashback</div>
+                <div class="node node-neutral">
+                  <div class="node-label">Expected Cashback</div>
+                  <div class="node-value">${fmt(c.expectedCashback)}</div>
+                  <div class="node-formula">${(c.cashbackPct*100).toFixed(0)}% &times; Theo GGR</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="conn-group"><div class="conn"></div><div class="conn-arrow"></div></div>
+        <div class="conn-down"><div class="vline"></div><div class="arrow-down"></div></div>
         <div class="node node-bonus">
           <div class="node-label">Operator Bonus Payable to Player</div>
           <div class="node-value">${fmt(c.operatorBonusPayable)}</div>
           <div class="node-formula">Rakeback + Cashback</div>
         </div>
+
+        <!-- Operator Net Position at bottom of right branch -->
+        <div class="conn-down"><div class="vline"></div></div>
+        <div class="bottom-formula">
+          Total Operator Share &minus; Operator Bonus Payable<br>
+          ${fmt(c.totalOperatorShare)} &minus; ${fmt(c.operatorBonusPayable)}
+        </div>
+        <div class="conn-down"><div class="vline-short"></div><div class="arrow-down"></div></div>
+        <div class="node node-operator">
+          <div class="node-label">Total Operator Share</div>
+          <div class="node-value" style="color:${opNetColor}">${fmt(c.operatorNetPosition)}</div>
+          <div class="node-formula">Operator Net Position</div>
+        </div>
       </div>
+
     </div>
   `;
 }
@@ -713,7 +629,6 @@ function recalc() {
   renderTLDR(c);
 }
 
-// Bind all inputs
 document.querySelectorAll('.inputs-panel input').forEach(el => {
   el.addEventListener('input', recalc);
 });
