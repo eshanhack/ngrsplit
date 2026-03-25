@@ -506,7 +506,7 @@ function renderTree(c) {
           </div>
           <div class="h-arrow">${svgArrow}</div>
           <div class="h-flow-item">
-            <div class="node node-operator">
+            <div class="node node-operator" id="node-total-op-share">
               <div class="node-label">Total Operator Share</div>
               <div class="node-value">${fmt(c.totalOperatorShare)}</div>
               <div class="node-formula">Op Share + Origami Bonus</div>
@@ -563,22 +563,10 @@ function renderTree(c) {
         </div>
 
         <div class="conn-down"><div class="vline"></div><div class="arrow-down"></div></div>
-        <div class="h-flow">
-          <div class="h-flow-item">
-            <div class="node node-operator">
-              <div class="node-label">Total Operator Share</div>
-              <div class="node-value">${fmt(c.totalOperatorShare)}</div>
-              <div class="node-formula">Op Share + Origami Bonus</div>
-            </div>
-          </div>
-          <div class="h-arrow">${svgArrow}</div>
-          <div class="h-flow-item">
-            <div class="node node-bonus">
-              <div class="node-label">Operator Bonus Payable to Player</div>
-              <div class="node-value">${fmt(c.operatorBonusPayable)}</div>
-              <div class="node-formula">Rakeback + Cashback</div>
-            </div>
-          </div>
+        <div class="node node-bonus" id="node-op-bonus-payable">
+          <div class="node-label">Operator Bonus Payable to Player</div>
+          <div class="node-value">${fmt(c.operatorBonusPayable)}</div>
+          <div class="node-formula">Rakeback + Cashback</div>
         </div>
 
         <div class="conn-down"><div class="vline"></div></div>
@@ -616,12 +604,70 @@ function renderTLDR(c) {
   `;
 }
 
+function drawCrossArrow() {
+  const existing = document.getElementById('cross-arrow-svg');
+  if (existing) existing.remove();
+
+  if (window.innerWidth < 1100) return;
+
+  const from = document.getElementById('node-total-op-share');
+  const to = document.getElementById('node-op-bonus-payable');
+  if (!from || !to) return;
+
+  const diagram = document.getElementById('treeDiagram');
+  diagram.style.position = 'relative';
+
+  const dr = diagram.getBoundingClientRect();
+  const fr = from.getBoundingClientRect();
+  const tr = to.getBoundingClientRect();
+
+  const x1 = fr.right - dr.left;
+  const y1 = fr.top + fr.height / 2 - dr.top;
+  const x2 = tr.left - dr.left;
+  const y2 = tr.top + tr.height / 2 - dr.top;
+
+  const ns = 'http://www.w3.org/2000/svg';
+  const svg = document.createElementNS(ns, 'svg');
+  svg.id = 'cross-arrow-svg';
+  svg.setAttribute('style', 'position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:visible;');
+
+  const defs = document.createElementNS(ns, 'defs');
+  const marker = document.createElementNS(ns, 'marker');
+  marker.setAttribute('id', 'xarrow-head');
+  marker.setAttribute('markerWidth', '8');
+  marker.setAttribute('markerHeight', '6');
+  marker.setAttribute('refX', '8');
+  marker.setAttribute('refY', '3');
+  marker.setAttribute('orient', 'auto');
+  const poly = document.createElementNS(ns, 'polygon');
+  poly.setAttribute('points', '0 0, 8 3, 0 6');
+  poly.setAttribute('fill', '#b0b8c4');
+  marker.appendChild(poly);
+  defs.appendChild(marker);
+  svg.appendChild(defs);
+
+  const midX = (x1 + x2) / 2;
+  const path = document.createElementNS(ns, 'path');
+  path.setAttribute('d', `M ${x1} ${y1} C ${midX} ${y1} ${midX} ${y2} ${x2} ${y2}`);
+  path.setAttribute('stroke', '#b0b8c4');
+  path.setAttribute('stroke-width', '2');
+  path.setAttribute('stroke-dasharray', '5,4');
+  path.setAttribute('fill', 'none');
+  path.setAttribute('marker-end', 'url(#xarrow-head)');
+  svg.appendChild(path);
+
+  diagram.appendChild(svg);
+}
+
 function recalc() {
   const c = calculate();
   renderNetTakeCard(c);
   renderTree(c);
   renderTLDR(c);
+  requestAnimationFrame(drawCrossArrow);
 }
+
+window.addEventListener('resize', drawCrossArrow);
 
 document.querySelectorAll('.inputs-panel input').forEach(el => {
   el.addEventListener('input', recalc);
