@@ -412,6 +412,7 @@ function calculate() {
 
 function renderNetTakeCard(c) {
   const color = c.operatorNetPosition >= 0 ? 'var(--positive)' : 'var(--negative)';
+  const playerBonusingPct = (c.rakebackPct + c.cashbackPct) * 100;
   document.getElementById('netTakeCard').innerHTML = `
     <div class="ntc-title">Operator Net-Take</div>
     <div class="ntc-label">Operator Net Position</div>
@@ -424,6 +425,10 @@ function renderNetTakeCard(c) {
       <div class="ntc-metric">
         <div class="ntc-metric-label">NGR Net Take</div>
         <div class="ntc-metric-value">${pct(c.ngrNetTake)}</div>
+      </div>
+      <div class="ntc-metric">
+        <div class="ntc-metric-label">Player Bonusing</div>
+        <div class="ntc-metric-value">${pct(playerBonusingPct)}</div>
       </div>
     </div>
   `;
@@ -558,10 +563,22 @@ function renderTree(c) {
         </div>
 
         <div class="conn-down"><div class="vline"></div><div class="arrow-down"></div></div>
-        <div class="node node-bonus">
-          <div class="node-label">Operator Bonus Payable to Player</div>
-          <div class="node-value">${fmt(c.operatorBonusPayable)}</div>
-          <div class="node-formula">Rakeback + Cashback</div>
+        <div class="h-flow">
+          <div class="h-flow-item">
+            <div class="node node-operator">
+              <div class="node-label">Total Operator Share</div>
+              <div class="node-value">${fmt(c.totalOperatorShare)}</div>
+              <div class="node-formula">Op Share + Origami Bonus</div>
+            </div>
+          </div>
+          <div class="h-arrow">${svgArrow}</div>
+          <div class="h-flow-item">
+            <div class="node node-bonus">
+              <div class="node-label">Operator Bonus Payable to Player</div>
+              <div class="node-value">${fmt(c.operatorBonusPayable)}</div>
+              <div class="node-formula">Rakeback + Cashback</div>
+            </div>
+          </div>
         </div>
 
         <div class="conn-down"><div class="vline"></div></div>
@@ -571,9 +588,9 @@ function renderTree(c) {
         </div>
         <div class="conn-down"><div class="vline-short"></div><div class="arrow-down"></div></div>
         <div class="node node-operator">
-          <div class="node-label">Total Operator Share</div>
+          <div class="node-label">Operator Net Position</div>
           <div class="node-value" style="color:${opNetColor}">${fmt(c.operatorNetPosition)}</div>
-          <div class="node-formula">Operator Net Position</div>
+          <div class="node-formula">Total Op Share &minus; Bonus Payable</div>
         </div>
       </div>
 
