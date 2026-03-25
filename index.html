@@ -470,8 +470,8 @@ function renderTree(c) {
         <div class="fork">
           <div class="vline"></div>
           <div class="fork-bar" style="--fork-left:25%;--fork-right:25%;">
-            <div class="fork-children">
-              <div class="fork-child">
+            <div class="fork-children" style="align-items:flex-start;">
+              <div class="fork-child" style="max-width:none;">
                 <div class="vline-short"></div>
                 <div class="arrow-down"></div>
                 <div class="fork-child-label">${(c.origamiPct*100).toFixed(0)}%</div>
@@ -479,8 +479,26 @@ function renderTree(c) {
                   <div class="node-label">Origami Share</div>
                   <div class="node-value">${fmt(c.origamiShare)}</div>
                 </div>
+                <div class="conn-down"><div class="vline"></div></div>
+                <div class="formula-text">${(c.origamiPct*100).toFixed(0)}% &times; Bonus Budget<br>${(c.origamiPct*100).toFixed(0)}% &times; ${fmt(c.bonusBudget)}</div>
+                <div class="conn-down"><div class="vline-short"></div><div class="arrow-down"></div></div>
+                <div class="node node-bonus">
+                  <div class="node-label">Origami Bonus Budget Payable to Operator</div>
+                  <div class="node-value">${fmt(c.origamiBonusBudget)}</div>
+                </div>
+                <div class="conn-down"><div class="vline"></div></div>
+                <div class="bottom-formula">
+                  Origami Share &minus; Origami Bonus Payable<br>
+                  ${fmt(c.origamiShare)} &minus; ${fmt(c.origamiBonusBudget)}
+                </div>
+                <div class="conn-down"><div class="vline-short"></div><div class="arrow-down"></div></div>
+                <div class="node node-origami">
+                  <div class="node-label">Total Origami Share</div>
+                  <div class="node-value" style="color:${oriNetColor}">${fmt(c.origamiNetPosition)}</div>
+                  <div class="node-formula">Origami Net Position</div>
+                </div>
               </div>
-              <div class="fork-child">
+              <div class="fork-child" style="max-width:none;">
                 <div class="vline-short"></div>
                 <div class="arrow-down"></div>
                 <div class="fork-child-label">${(c.operatorPct*100).toFixed(0)}%</div>
@@ -488,42 +506,15 @@ function renderTree(c) {
                   <div class="node-label">Operator Share</div>
                   <div class="node-value">${fmt(c.operatorShare)}</div>
                 </div>
+                <div class="conn-down"><div class="vline-short"></div><div class="arrow-down"></div></div>
+                <div class="node node-operator" id="node-total-op-share">
+                  <div class="node-label">Total Operator Share</div>
+                  <div class="node-value">${fmt(c.totalOperatorShare)}</div>
+                  <div class="node-formula">Op Share + Origami Bonus</div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-
-        <div class="conn-down"><div class="vline"></div></div>
-        <div class="formula-text">${(c.origamiPct*100).toFixed(0)}% &times; Bonus Budget<br>${(c.origamiPct*100).toFixed(0)}% &times; ${fmt(c.bonusBudget)}</div>
-        <div class="conn-down"><div class="vline-short"></div><div class="arrow-down"></div></div>
-
-        <div class="h-flow">
-          <div class="h-flow-item">
-            <div class="node node-bonus">
-              <div class="node-label">Origami Bonus Budget Payable to Operator</div>
-              <div class="node-value">${fmt(c.origamiBonusBudget)}</div>
-            </div>
-          </div>
-          <div class="h-arrow">${svgArrow}</div>
-          <div class="h-flow-item">
-            <div class="node node-operator" id="node-total-op-share">
-              <div class="node-label">Total Operator Share</div>
-              <div class="node-value">${fmt(c.totalOperatorShare)}</div>
-              <div class="node-formula">Op Share + Origami Bonus</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="conn-down"><div class="vline"></div></div>
-        <div class="bottom-formula">
-          Origami share &minus; Origami Bonus Payable<br>
-          ${fmt(c.origamiShare)} &minus; ${fmt(c.origamiBonusBudget)}
-        </div>
-        <div class="conn-down"><div class="vline-short"></div><div class="arrow-down"></div></div>
-        <div class="node node-origami">
-          <div class="node-label">Total Origami Share</div>
-          <div class="node-value" style="color:${oriNetColor}">${fmt(c.origamiNetPosition)}</div>
-          <div class="node-formula">Origami Net Position</div>
         </div>
       </div>
 
